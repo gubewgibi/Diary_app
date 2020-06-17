@@ -93,7 +93,8 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('DEAR DIARY',
             style: TextStyle(
                 fontFamily: 'Varela',
-                fontSize: 20.0,
+                fontSize: 25.0,
+                fontWeight: FontWeight.bold,
                 color: Colors.white)),
       ),
       body: StreamBuilder(
@@ -101,7 +102,10 @@ class _MyHomePageState extends State<MyHomePage> {
           builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
 
             if (!snapshot.hasData) {
-              return Text('"Loading...');
+              return Text('"Loading...', style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold
+              ),);
             }
             int length = snapshot.data.documents.length;
              new Column(

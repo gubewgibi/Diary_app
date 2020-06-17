@@ -2,7 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'constants.dart';
-import 'bottom_nav_bar.dart';
+import 'widget/vodPage.dart';
+import 'widget/vdoPage2.dart';
+import 'widget/vdoPage3.dart';
+import 'widget/vdoPage4.dart';
+import 'widget/vdoPage5.dart';
+import 'widget/vdoPage6.dart';
+
 
 
 
@@ -11,7 +17,6 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      bottomNavigationBar: BottomNavBar(),
       body: Stack(
         children: <Widget>[
           Container(
@@ -66,27 +71,45 @@ class DetailsScreen extends StatelessWidget {
                         SeassionCard(
                           seassionNum: 1,
                           isDone: true,
-                          press: () {},
+                          press: () {Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => vdoPage()),
+                          );},
                         ),
                         SeassionCard(
                           seassionNum: 2,
-                          press: () {},
+                          press: () {Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => vdoPage2()),
+                          );},
                         ),
                         SeassionCard(
                           seassionNum: 3,
-                          press: () {},
+                          press: () {Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => vdoPage3()),
+                          );},
                         ),
                         SeassionCard(
                           seassionNum: 4,
-                          press: () {},
+                          press: () {Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => vdoPage4()),
+                          );},
                         ),
                         SeassionCard(
                           seassionNum: 5,
-                          press: () {},
+                          press: () {Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => vdoPage5()),
+                          );},
                         ),
                         SeassionCard(
                           seassionNum: 6,
-                          press: () {},
+                          press: () {Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => vdoPage6()),
+                          );},
                         ),
                       ],
                     ),
@@ -161,6 +184,14 @@ class DetailsScreen extends StatelessWidget {
           )
 
         ],
+      ),
+    );
+  }
+  Widget _relaxVdo(String name , String Detail , String VDO , String info, String img){
+    return Padding(
+      padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
+      child: InkWell(
+
       ),
     );
   }
