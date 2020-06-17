@@ -60,8 +60,16 @@ class _MyInfoPageState extends State<MyInfoPage> {
     getPost();
     return Scaffold(
       appBar: AppBar(
-        title: Text('Information Page'),
+        title: Text('Read Diary',
+            style: TextStyle(
+                fontFamily: 'Varela',
+                fontSize: 25.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.white)),
         backgroundColor: Color(0xFFC7B8F5),
+        elevation: 0.0,
+        centerTitle: true,
+
 
       ),
       body: Container(

@@ -86,16 +86,16 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor:  Color(0xFFC7B8F5),
         elevation: 0.0,
         centerTitle: true,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () {},
-        ),
         title: Text('DEAR DIARY',
             style: TextStyle(
                 fontFamily: 'Varela',
                 fontSize: 25.0,
                 fontWeight: FontWeight.bold,
                 color: Colors.white)),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {},
+        ),
       ),
       body: StreamBuilder(
           stream: Firestore.instance.collection("colrecipes").snapshots(),

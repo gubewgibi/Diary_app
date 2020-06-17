@@ -22,9 +22,19 @@ class choosePage extends StatelessWidget {
     return Scaffold(
         backgroundColor: Color(0xFFC7B8F5),
         appBar: AppBar(
-          title: Text('DOCTOR TEA'),
-          elevation: 0,
-          backgroundColor: Color(0xFFC7B8F5),
+          backgroundColor:  Color(0xFFC7B8F5),
+          elevation: 0.0,
+          centerTitle: true,
+          title: Text('Doctor TEA',
+              style: TextStyle(
+                  fontFamily: 'Varela',
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white)),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: Colors.white),
+            onPressed: () {},
+          ),
         ),
         body: Stack(
           children: <Widget>[
