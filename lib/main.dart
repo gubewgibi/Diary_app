@@ -7,6 +7,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Mega Hd Filmes',
+      theme: ThemeData(
+        primarySwatch: Colors.purple
+      ),
       home: SplashScreen(),
       debugShowCheckedModeBanner: false,
     );

@@ -6,9 +6,8 @@ import 'category_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:diaryappp/ui/addpage.dart';
 import '../vdoCallPage.dart';
-import '../SettingPage.dart';
 import 'package:diaryappp/ui/viewPage.dart';
-
+import 'package:diaryappp/doctor/main.dart';
 
 
 class RelaxPage extends StatelessWidget {
@@ -190,7 +189,7 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => settingPage()),
+                    MaterialPageRoute(builder: (context) => DoctoePage()),
                   );
                 },
               ),

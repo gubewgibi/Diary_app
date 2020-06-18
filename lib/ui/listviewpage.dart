@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: 'View Page1',
       theme: new ThemeData(
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.white,
       ),
       home: new MyListPage(),
     );

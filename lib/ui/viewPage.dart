@@ -1,14 +1,13 @@
-
+import 'package:diaryappp/doctor/main.dart';
+import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
+import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'addpage.dart';
-
 import 'informationPage.dart';
-
 import 'package:diaryappp/relax/Relax.dart';
-import '../SettingPage.dart';
+import 'package:diaryappp/calendar/main.dart';
 
 
 
@@ -35,7 +34,7 @@ class MyApp extends StatelessWidget {
 class CommonThings {
   static Size size;
 }
-final pages =[MyHomePage() , RelaxPage() , MyAddPage() ,  settingPage() ];
+final pages =[MyHomePage() , RelaxPage() , MyAddPage() ,  ];
 
 
 class MyHomePage extends StatefulWidget {
@@ -54,6 +53,30 @@ class _MyHomePageState extends State<MyHomePage> {
   String recipe;
   String date;
   String emoji;
+  final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
+  GlobalKey<RefreshIndicatorState>();
+
+  // Scaffold key!
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  // You can put any thing you like, like refetching posts or data from internet
+  Future<void> _handleRefresh() {
+    final Completer<void> completer = Completer<void>();
+
+    Timer(const Duration(seconds: 3), () {
+      completer.complete();
+    });
+
+    return completer.future.then<void>((_) {
+      _scaffoldKey.currentState?.showSnackBar(SnackBar(
+          content: const Text('Refresh complete'),
+          action: SnackBarAction(
+              label: 'RETRY',
+              onPressed: () {
+                _refreshIndicatorKey.currentState.show();
+              })));
+    });
+  }
 
 
   //create function for delete one register
@@ -83,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor:Color(0xFFC7B8F5),
       appBar: AppBar(
-        backgroundColor:  Color(0xFFC7B8F5),
+          backgroundColor:  Color(0xFFC7B8F5),
         elevation: 0.0,
         centerTitle: true,
         title: Text('DEAR DIARY',
@@ -92,46 +115,60 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 25.0,
                 fontWeight: FontWeight.bold,
                 color: Colors.white)),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () {},
-        ),
+        actions: <Widget>[
+          IconButton(
+            icon: Image.asset("assets/images/calendar.png"),
+            iconSize: 40,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CalandarPage()),
+              );
+            },
+          ),
+        ],
+
       ),
-      body: StreamBuilder(
-          stream: Firestore.instance.collection("colrecipes").snapshots(),
-          builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+      body: LiquidPullToRefresh(
+        key: _refreshIndicatorKey,
+        onRefresh: _handleRefresh,
+        showChildOpacityTransition: true,
+        backgroundColor: Color(0xFFC7B8F5),
+        child: StreamBuilder(
+            stream: Firestore.instance.collection("colrecipes").snapshots(),
+            builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
 
-            if (!snapshot.hasData) {
-              return Text('"Loading...', style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold
-              ),);
-            }
-            int length = snapshot.data.documents.length;
-             new Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  new Image.asset("assets/images/c6afb20942212299fbb4698bdbf66363.jpg")
-                ]
-            );
-             new Container(
+              if (!snapshot.hasData) {
+                return Text('"Loading...', style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold
+                ),);
+              }
+              int length = snapshot.data.documents.length;
+              new Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    new Image.asset("assets/images/c6afb20942212299fbb4698bdbf66363.jpg")
+                  ]
+              );
+              new Container(
 
-             );
+              );
 
-            return GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 1, //two columns
-                  mainAxisSpacing: 70, //space the card
-                  childAspectRatio: 0.8, //space largo de cada card
+              return GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 1, //two columns
+                    mainAxisSpacing: 70, //space the card
+                    childAspectRatio: 0.8, //space largo de cada card
 
-                ),
-                itemCount: length,
-                padding: EdgeInsets.all(100.0),
-                itemBuilder: (_, int index) {
-                  final DocumentSnapshot doc = snapshot.data.documents[index];
+                  ),
+                  itemCount: length,
+                  padding: EdgeInsets.all(100.0),
+                  itemBuilder: (_, int index) {
+                    final DocumentSnapshot doc = snapshot.data.documents[index];
 
 
-                 return new Container(
+                    return new Container(
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15.0),
                           boxShadow: [
@@ -238,11 +275,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
                       ),
 
-                 );
+                    );
 
-                }
-            );
-          }
+                  }
+              );
+            }
+        ),
       ),
 
 
@@ -314,12 +352,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
               IconButton(
-                icon: Image.asset("assets/images/gear.png"),
+                icon: Image.asset("assets/images/doctor.png"),
                 iconSize: 40,
                 onPressed: () {
-                  Navigator.pushReplacement(
+                  Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => settingPage()),
+                    MaterialPageRoute(builder: (context) => DoctoePage()),
                   );
                 },
               ),
