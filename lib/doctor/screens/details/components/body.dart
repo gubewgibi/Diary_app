@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:diaryappp/doctor/constants.dart';
 import 'package:diaryappp/doctor/models/product.dart';
+import 'package:flutter/cupertino.dart';
+
 
 import 'chat_and_add_to_cart.dart';
 import 'product_image.dart';
@@ -74,5 +76,6 @@ class Body extends StatelessWidget {
         ),
       ),
     );
+
   }
 }

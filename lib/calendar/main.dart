@@ -56,7 +56,7 @@ class _CalandarPageState extends State<CalandarPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter Calendar'),
+        title: Text('Calendar'),
       ),
       body: StreamBuilder<List<EventModel>>(
         stream: eventDBS.streamList(),

@@ -8,6 +8,7 @@ import 'package:diaryappp/ui/addpage.dart';
 import '../vdoCallPage.dart';
 import 'package:diaryappp/ui/viewPage.dart';
 import 'package:diaryappp/doctor/main.dart';
+import 'package:diaryappp/music/musicPaage.dart';
 
 
 class RelaxPage extends StatelessWidget {
@@ -103,9 +104,16 @@ class HomeScreen extends StatelessWidget {
                           },
                         ),
                         CategoryCard(
-                          title: "Yoga",
+                          title: "Music Meditation",
                           svgSrc: "assets/icons/yoga.svg",
-                          press: () {},
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return MusicPage();
+                              }),
+                            );
+                          },
                         ),
                       ],
                     ),
