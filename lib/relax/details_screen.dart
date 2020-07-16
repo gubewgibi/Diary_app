@@ -8,6 +8,10 @@ import 'widget/vdoPage3.dart';
 import 'widget/vdoPage4.dart';
 import 'widget/vdoPage5.dart';
 import 'widget/vdoPage6.dart';
+import 'widget/vdoPage7.dart';
+import 'widget/vdoPage8.dart';
+import 'widget/vdoPage9.dart';
+import 'widget/vdoPage10.dart';
 
 
 
@@ -40,7 +44,7 @@ class DetailsScreen extends StatelessWidget {
                       height: size.height * 0.05,
                     ),
                     Text(
-                      "Meditation",
+                      "BroadCast",
                       style: Theme.of(context)
                           .textTheme
                           .display1
@@ -48,7 +52,7 @@ class DetailsScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 10),
                     Text(
-                      "3-10 MIN Course",
+                      "30 MIN Course",
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 10),
@@ -111,58 +115,37 @@ class DetailsScreen extends StatelessWidget {
                             MaterialPageRoute(builder: (context) => vdoPage6()),
                           );},
                         ),
+                        SeassionCard(
+                          seassionNum: 7,
+                          press: () {Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => vdoPage7()),
+                          );},
+                        ),
+                        SeassionCard(
+                          seassionNum: 8,
+                          press: () {Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => vdoPage8()),
+                          );},
+                        ),
+                        SeassionCard(
+                          seassionNum: 9,
+                          press: () {Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => vdoPage9()),
+                          );},
+                        ),
+                        SeassionCard(
+                          seassionNum: 10,
+                          press: () {Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => vdoPage10()),
+                          );},
+                        ),
                       ],
                     ),
                     SizedBox(height: 20),
-                    Text(
-                      "Meditation",
-                      style: Theme.of(context)
-                          .textTheme
-                          .title
-                          .copyWith(fontWeight: FontWeight.bold),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 20),
-                      padding: EdgeInsets.all(10),
-                      height: 90,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(13),
-                        boxShadow: [
-                          BoxShadow(
-                            offset: Offset(0, 17),
-                            blurRadius: 23,
-                            spreadRadius: -13,
-                            color: kShadowColor,
-                          ),
-                        ],
-                      ),
-                      child: Row(
-                        children: <Widget>[
-                          SvgPicture.asset(
-                            "assets/icons/Meditation_women_small.svg",
-                          ),
-                          SizedBox(width: 20),
-                          Expanded(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  "Basic 2",
-                                  style: Theme.of(context).textTheme.subtitle,
-                                ),
-                                Text("Start your deepen you practice")
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(10),
-                            child: SvgPicture.asset("assets/icons/Lock.svg"),
-                          ),
-                        ],
-                      ),
-                    )
                   ],
                 ),
               ),

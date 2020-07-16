@@ -8,7 +8,9 @@ import 'package:diaryappp/ui/addpage.dart';
 import '../vdoCallPage.dart';
 import 'package:diaryappp/ui/viewPage.dart';
 import 'package:diaryappp/doctor/main.dart';
-import 'package:diaryappp/music/musicPaage.dart';
+import 'package:diaryappp/Yoka/yokaPage.dart';
+import 'package:diaryappp/monk/monkPage.dart';
+
 
 
 class RelaxPage extends StatelessWidget {
@@ -84,16 +86,6 @@ class HomeScreen extends StatelessWidget {
                         CategoryCard(
                           title: "Diet Recommendation",
                           svgSrc: "assets/icons/Hamburger.svg",
-                          press: () {},
-                        ),
-                        CategoryCard(
-                          title: "Kegel Exercises",
-                          svgSrc: "assets/icons/Excrecises.svg",
-                          press: () {},
-                        ),
-                        CategoryCard(
-                          title: "Meditation",
-                          svgSrc: "assets/icons/Meditation.svg",
                           press: () {
                             Navigator.push(
                               context,
@@ -104,15 +96,40 @@ class HomeScreen extends StatelessWidget {
                           },
                         ),
                         CategoryCard(
-                          title: "Music Meditation",
+                          title: "Meditate",
+                          svgSrc: "assets/icons/Meditation.svg",
+                         press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return MonkPage();
+                              }),
+                            );
+                          },
+                        ),
+                        CategoryCard(
+                          title: "Broadcast Meditation",
                           svgSrc: "assets/icons/yoga.svg",
                           press: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) {
-                                return MusicPage();
+                                return DetailsScreen();
                               }),
                             );
+                          },
+                        ),
+                        CategoryCard(
+                          title: "Yoga Meditation",
+                          svgSrc: "assets/icons/Excrecises.svg",
+                          press: () {
+                           Navigator.push(
+                           context,
+                           MaterialPageRoute(builder: (context) {
+                           return YokaPage();
+                           }
+                           ),
+                           );
                           },
                         ),
                       ],
@@ -185,17 +202,17 @@ class HomeScreen extends StatelessWidget {
                 icon: Image.asset("assets/images/video.png"),
                 iconSize: 40,
                 onPressed: () {
-                  Navigator.pushReplacement(
+                  Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => VdoPage()),
                   );
                 },
               ),
               IconButton(
-                icon: Image.asset("assets/images/gear.png"),
+                icon: Image.asset("assets/images/doctor.png"),
                 iconSize: 40,
                 onPressed: () {
-                  Navigator.pushReplacement(
+                  Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => DoctoePage()),
                   );

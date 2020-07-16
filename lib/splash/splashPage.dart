@@ -4,6 +4,7 @@ import 'loderPage.dart';
 import 'choosePage.dart';
 
 
+
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();

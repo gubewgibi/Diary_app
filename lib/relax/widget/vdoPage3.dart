@@ -18,7 +18,7 @@ class vdoPageState extends State<vdoPage3> {
   @override
   void initState() {
     _controller = VideoPlayerController.asset(
-        "assets/video/1.mp4");
+        "assets/video/m3.mp4");
     //_controller = VideoPlayerController.asset("videos/sample_video.mp4");
     _initializeVideoPlayerFuture = _controller.initialize();
     _controller.setLooping(true);
@@ -35,10 +35,10 @@ class vdoPageState extends State<vdoPage3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:  Color.fromRGBO(92 ,183, 255, 1) ,
+      backgroundColor: Color.fromRGBO(120, 39, 218,  1) ,
       appBar: AppBar(
         title: Text("Video Demo"),
-        backgroundColor:  Color.fromRGBO(92 ,183, 255,1),
+        backgroundColor:  Color.fromRGBO(120, 39, 218,  1) ,
         elevation: 0.0,
       ),
       body: FutureBuilder(

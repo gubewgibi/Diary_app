@@ -32,7 +32,7 @@ class ChatAndAddToCart extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(30),
       ),
-      child: Row(
+      child: Column(
         children: <Widget>[
           FlatButton.icon(
             onPressed: () {
@@ -44,6 +44,24 @@ class ChatAndAddToCart extends StatelessWidget {
             ),
             label: Text(
               "Contact us to hire our Psychiatrist",
+              style: TextStyle(
+                  color: Colors.black,
+                fontSize: 15,
+                fontWeight: FontWeight.bold
+              ),
+            ),
+          ),
+          SizedBox(height: 20,),
+          FlatButton.icon(
+            onPressed: () {
+              customLunch('tel://0806355602');
+            },
+            icon: Image.asset(
+              "assets/images/phone.png",
+              height: 18,
+            ),
+            label: Text(
+              "Call to us to hire our Psychiatrist",
               style: TextStyle(
                   color: Colors.black,
                 fontSize: 15,
